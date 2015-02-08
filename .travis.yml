@@ -1,0 +1,17 @@
+language: cpp
+sudo: false
+notifications:
+  email: false
+compiler:
+  - gcc
+addons:
+  apt_packages: "curl"
+before_install:
+  - echo 'Compiling with:'
+  - $CXX --version
+  - echo 'CMake version:'
+  - cmake --version
+script: 
+  - sh build_base.sh
+os:
+  - linux
