@@ -28,6 +28,6 @@ echo "########################################################################"
 echo "Build URL:"
 curl --upload-file ./cmake.tar.bz2 https://transfer.sh/cmake.tar.bz2
 echo "########################################################################"
-# Clean dir
+# Clean dir 
 cd ../..
 rm -r cmake-*
