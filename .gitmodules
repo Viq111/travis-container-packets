@@ -1,3 +1,3 @@
 [submodule "install_clang"]
 	path = install_clang
-	url = git@github.com:rsmmr/install-clang.git
+	url = https://github.com/rsmmr/install-clang.git
