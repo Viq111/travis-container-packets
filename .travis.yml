@@ -3,7 +3,7 @@ sudo: false
 notifications:
   email: false
 compiler:
-  - clang
+  - gcc
 addons:
   apt_packages: "curl"
 before_install:
