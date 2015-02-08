@@ -19,6 +19,6 @@ before_install:
   - echo 'CMake version:'
   - cmake --version
 script: 
-  - sh build_clang.sh
+  - sh build_gcc.sh
 os:
   - linux
