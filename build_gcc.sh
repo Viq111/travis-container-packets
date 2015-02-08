@@ -15,7 +15,7 @@ mkdir build
 cd build
 echo "Configuring..."
 export C_INCLUDE_PATH=/usr/include/$(gcc -print-multiarch)
-../configure --enable-languages=c,c++ --enable-multiarch --enable-shared --enable-threads=posix --program-suffix=4.8 --without-included-gettext --with-system-zlib --prefix=$(pwd)/gcc
+../configure --enable-languages=c++ --prefix=$(pwd)/gcc
 echo "Building..."
 make -j 4
 make install
