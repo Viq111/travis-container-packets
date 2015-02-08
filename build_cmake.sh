@@ -2,7 +2,7 @@
 set -e
 # Get sources
 echo "Getting sources..."
-wget http://www.cmake.org/files/v2.8/cmake-2.8.12.tar.gz
+wget http://www.cmake.org/files/v3.1/cmake-3.1.2.tar.gz
 echo "Untarring..."
 tar -xzf cmake-*.tar.gz
 rm cmake-*.tar.gz
