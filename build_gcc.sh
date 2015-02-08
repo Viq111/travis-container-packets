@@ -5,7 +5,7 @@ tar -xjf gcc-4.8.2.tar.bz2
 cd gcc-4.8.2/
 mkdir build
 cd build
-../configure --disable-checking --enable-languages=c,c++ --enable-multiarch --enable-shared --enable-threads=posix --program-suffix=4.8 --without-included-gettext --with-system-zlib --prefix=./gcc
+../configure --disable-checking --enable-languages=c,c++ --enable-multiarch --enable-shared --enable-threads=posix --program-suffix=4.8 --without-included-gettext --with-system-zlib --prefix=$(pwd)/gcc
 make -j 4
 make install
 # Tar library
