@@ -7,11 +7,18 @@ compiler:
 addons:
   apt_packages: "curl"
 before_install:
+  # Get latest CMake 2.8
+  - wget https://github.com/Viq111/travis-container-packets/releases/download/cmake-2.8.12/cmake.tar.bz2
+  - tar -xjf cmake.tar.bz2
+  - rm cmake.tar.bz2
+  - cd cmake/bin
+  - export PATH=$(pwd):$PATH
+  - cd ../..
   - echo 'Compiling with:'
   - $CXX --version
   - echo 'CMake version:'
   - cmake --version
 script: 
-  - sh build_base.sh
+  - sh build_clang.sh
 os:
   - linux

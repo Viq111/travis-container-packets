@@ -1,16 +1,9 @@
 #!/bin/sh
 set -e
-# Get sources
-echo "Getting sources..."
-#wget -O base.tar.bz2 http://www.google.com
-echo "Untarring..."
-#tar -xjf base.tar.bz2
-#rm base.tar.bz2
-#cd base
-
-# Build library
+cd install_clang
+mkdir build
 echo "Building..."
-
+./install-clang -j 4 $(pwd)/build
 # Tar library
 echo "Build done, tarring..."
 #tar -jc --file=compiled.tar.bz2 build
