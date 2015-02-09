@@ -14,7 +14,9 @@ echo "Downloading prerequisites..."
 mkdir build
 cd build
 echo "Configuring..."
+export LIBRARY_PATH=/usr/lib/$(gcc -print-multiarch)
 export C_INCLUDE_PATH=/usr/include/$(gcc -print-multiarch)
+export CPLUS_INCLUDE_PATH=/usr/include/$(gcc -print-multiarch)
 ../configure --enable-languages=c++ --prefix=$(pwd)/gcc
 echo "Building..."
 make -j 4
