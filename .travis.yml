@@ -20,6 +20,7 @@ before_install:
   - cp ./gcc/bin/gcc ./gcc/bin/cc
   - export LIBRARY_PATH=$(pwd)/gcc/lib64
   - export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.8.2
+  - export CC=$(pwd)/gcc/bin/gcc
   - echo 'Compiling with:'
   - $CXX --version
   - echo 'CMake version:'
