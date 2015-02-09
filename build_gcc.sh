@@ -18,7 +18,7 @@ export LIBRARY_PATH=/usr/lib/$(gcc -print-multiarch)
 export C_INCLUDE_PATH=/usr/include/$(gcc -print-multiarch)
 export CPLUS_INCLUDE_PATH=/usr/include/$(gcc -print-multiarch)
 mkdir -p gcc-4.8.2/gcc
-../configure --enable-languages=c++ --disable-multilib --enable-shared --enable-threads=posix --prefix=$(pwd)/gcc-4.8.2/gcc
+../configure --enable-languages=c,c++ --disable-multilib --enable-shared --enable-threads=posix --prefix=$(pwd)/gcc-4.8.2/gcc
 echo "Building..."
 make -j 4 | awk '{printf "."}'
 echo ""
