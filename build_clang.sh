@@ -5,7 +5,7 @@ mkdir -p build/clang
 
 # Build library
 echo "Building..."
-./install-clang -j 4 $(pwd)/build/clang
+./install-clang -j 4 -m $(pwd)/build/clang
 
 # Tar library
 echo "Build done, tarring..."
