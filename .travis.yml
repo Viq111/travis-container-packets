@@ -7,11 +7,23 @@ compiler:
 addons:
   apt_packages: "curl"
 before_install:
+  # Get CMake 2.8
+  - wget https://github.com/Viq111/travis-container-packets/releases/download/cmake-2.8.12/cmake.tar.bz2
+  - tar -xjf cmake.tar.bz2
+  - rm cmake.tar.bz2
+  - export PATH=$(pwd)/cmake/bin:$PATH
+  # Get GCC 4.8
+  - wget https://github.com/Viq111/travis-container-packets/releases/download/gcc-4.8.2/gcc.tar.bz2
+  - tar -xjf gcc.tar.bz2
+  - rm gcc.tar.bz2
+  - export PATH=$(pwd)/gcc/bin:$PATH
+  - export LIBRARY_PATH=$(pwd)/gcc/lib64:$LIBRARY_PATH
+  - export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.8.2:$CPLUS_INCLUDE_PATH
   - echo 'Compiling with:'
   - $CXX --version
   - echo 'CMake version:'
   - cmake --version
 script: 
-  - sh build_base.sh
+  - sh build_clang.sh
 os:
   - linux
