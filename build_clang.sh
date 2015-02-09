@@ -20,8 +20,10 @@ echo "Configuring..."
 mkdir build
 cd build
 mkdir binaries
-../llvm/configure --prefix=$(pwd)/binaries
+#../llvm/configure --prefix=$(pwd)/binaries
+cmake -DCMAKE_BUILD_TYPE=Debug -CMAKE_INSTALL_PREFIX=$(pwd)/binaries  ..
 make -j4
+make install
 # Tar library
 echo "Build done, tarring..."
 cd build
