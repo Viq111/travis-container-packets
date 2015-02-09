@@ -17,6 +17,7 @@ before_install:
   - tar -xjf gcc.tar.bz2
   - rm gcc.tar.bz2
   - export PATH=$(pwd)/gcc/bin:$PATH
+  - cp ./gcc/bin/gcc ./gcc/bin/cc
   - export LIBRARY_PATH=$(pwd)/gcc/lib64
   - export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.8.2
   - echo 'Compiling with:'
