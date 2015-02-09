@@ -3,18 +3,18 @@ set -e
 mkdir clang
 cd clang
 echo "Getting LLVM..."
-svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm
+svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm -q
 echo "Getting Clang..."
 cd llvm/tools
-svn co http://llvm.org/svn/llvm-project/cfe/trunk clang
+svn co http://llvm.org/svn/llvm-project/cfe/trunk clang -q
 cd ../..
 echo "Getting extras..."
 cd llvm/tools/clang/tools
-svn co http://llvm.org/svn/llvm-project/clang-tools-extra/trunk extra
+svn co http://llvm.org/svn/llvm-project/clang-tools-extra/trunk extra -q
 cd ../../../..
 echo "Getting RT..."
 cd llvm/projects
-svn co http://llvm.org/svn/llvm-project/compiler-rt/trunk compiler-rt
+svn co http://llvm.org/svn/llvm-project/compiler-rt/trunk compiler-rt -q
 cd ../..
 echo "Configuring..."
 mkdir build
