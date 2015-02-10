@@ -12,7 +12,7 @@ wget http://archive.apache.org/dist/apr/apr-1.5.1.tar.bz2
 tar -xjf apr-1.5.1.tar.bz2
 rm apr-1.5.1.tar.bz2
 cd apr-1.5.1/
-./configure --prefix=$(readlink -f $BASE_DIR/apr) --disable-shared
+./configure --prefix=$(readlink -f $BASE_DIR/apr) --disable-static
 make -j4
 make install
 cd ..
@@ -22,7 +22,7 @@ wget http://archive.apache.org/dist/apr/apr-util-1.5.4.tar.bz2
 tar -xjf apr-util-1.5.4.tar.bz2
 rm apr-util-1.5.4.tar.bz2
 cd apr-util-1.5.4/
-./configure --prefix=$BASE_DIR/apr-util --with-apr=$BASE_DIR/apr --disable-shared
+./configure --prefix=$BASE_DIR/apr-util --with-apr=$BASE_DIR/apr --disable-static
 make
 make install
 cd ..
