@@ -26,6 +26,8 @@ before_install:
   - $CXX --version
   - echo 'CMake version:'
   - cmake --version
+  # Get SVN
+  - sh build_svn.sh
 script: 
   - sh build_clang.sh
 os:
