@@ -28,6 +28,7 @@ before_install:
   - cmake --version
   # Get SVN
   - sh build_svn.sh
+  - export PATH=$(pwd)/svn/bin:$PATH
 script: 
   - sh build_clang.sh
 os:

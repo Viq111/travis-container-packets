@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
-export BASE_DIR=$(pwd)/build
+export BASE_DIR=$(pwd)
 mkdir -p $BASE_DIR
 export LD_LIBRARY_PATH=$BASE_DIR:$LD_LIBRARY_PATH
 mkdir $BASE_DIR/apr
