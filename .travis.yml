@@ -15,6 +15,8 @@ before_install:
   - export LIBRARY_PATH=$(pwd)/clang/lib:$LIBRARY_PATH
   - export LD_LIBRARY_PATH=$(pwd)/clang/lib:$LD_LIBRARY_PATH
   - export CPLUS_INCLUDE_PATH=$(pwd)/clang/include/c++/v1:$CPLUS_INCLUDE_PATH
+  - export CXX="clang"
+  - export CC="clang"
   - echo 'Compiling with:'
   - $CXX --version
   - echo 'CMake version:'
