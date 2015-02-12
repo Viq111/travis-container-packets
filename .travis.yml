@@ -31,10 +31,9 @@ before_install:
   - if [ "$CXX" == "clang++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/clang/include/c++/v1:$CPLUS_INCLUDE_PATH; fi
   - echo 'Compiling with:'
   - which cmake && cmake --version
-  - which $CXX && $CXX --version
   - which $CC && $CC --version
+  - which $CXX && $CXX --version
 script: 
-  - echo "Ready to compile on:"
-  - echo $CXX
+  - sh build_boost.sh
 os:
   - linux
