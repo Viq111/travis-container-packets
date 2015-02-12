@@ -10,7 +10,9 @@ cd boost_*
 # Build library
 echo "Building..."
 ./bootstrap.sh
-./b2 -j4 address-model=64 --with-chrono --with-iostreams --with-thread --with-date_time --prefix=build -q install
+if [ "$CXX" == "g++" ]; then ./b2 -j4 address-model=64 --with-chrono --with-iostreams --with-thread --with-date_time --prefix=build -q install | awk '{printf "."}'; fi
+if [ "$CXX" == "clang++" ]; then ./b2 toolset=clang cxxflags="-stdlib=libc++" linkflags="-stdlib=libc++" address-model=64 --with-chrono --with-iostreams --with-thread --with-date_time --prefix=build -q install | awk '{printf "."}'; fi
+
 mv build ../boost
 cd ..
 # Tar library
