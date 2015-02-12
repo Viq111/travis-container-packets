@@ -20,7 +20,12 @@ In your travis file, you can add the following commands to download, install and
 ### Boost
 
 ```yml
-ToDo
+install:
+  # Get boost
+  - wget https://github.com/Viq111/travis-container-packets/releases/download/boost-1.57.0/boost.tar.bz2
+  - tar -xjf boost.tar.bz2
+  - rm boost.tar.bz2
+  - export BOOST_ROOT=$(pwd)/boost
 ```
 
 ### Boost-min
