@@ -5,8 +5,8 @@ A repository to compile and store packets for Travis container-based architectur
 
 | Name | latest version | status |
 | ---- | ------------ | ------ |
-| Boost | 1.57.0 | In progress |
-| Boost-min | 1.57.0 | In progress |
+| Boost | 1.57.0 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=boost)](https://travis-ci.org/Viq111/travis-container-packets) |
+| Boost-min | 1.57.0 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=boost-min)](https://travis-ci.org/Viq111/travis-container-packets) |
 | Clang | 3.4.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=clang)](https://travis-ci.org/Viq111/travis-container-packets) |
 | Clang+libc++ | 3.4.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=libcxx)](https://travis-ci.org/Viq111/travis-container-packets) |
 | CMake | 3.1.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=cmake-3)](https://travis-ci.org/Viq111/travis-container-packets) |
@@ -28,7 +28,12 @@ ToDo
 Contains: `chrono`, `date_time`, `iostreams`, `thread`
 
 ```
-ToDo
+install:
+  # Get boost
+  - wget https://github.com/Viq111/travis-container-packets/releases/download/boost-min-1.57.0/boost.tar.bz2
+  - tar -xjf boost.tar.bz2
+  - rm boost.tar.bz2
+  - export BOOST_ROOT=$(pwd)/boost
 ```
 
 ### Clang
