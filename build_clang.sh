@@ -21,7 +21,7 @@ mkdir build
 cd build
 mkdir binaries
 #../llvm/configure --prefix=$(pwd)/binaries
-cmake -DCMAKE_BUILD_TYPE=Debug -CMAKE_INSTALL_PREFIX=$(pwd)/binaries  ../llvm
+cmake -DCMAKE_INSTALL_PREFIX=$(pwd)/binaries  ../llvm
 make -j4
 make install
 # Tar library
