@@ -7,10 +7,6 @@ compiler:
 addons:
   apt_packages: "curl"
 before_install:
-  # Get Clang
-  export COMPILER_NAME=""
-  export COMPILER_URL="
-  
   # Get compiler
   - wget https://github.com/Viq111/travis-container-packets/releases/download/clang-3.4.2/clang.tar.bz2
   - tar -xjf clang.tar.bz2
