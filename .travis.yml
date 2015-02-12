@@ -7,11 +7,23 @@ compiler:
 addons:
   apt_packages: "curl"
 before_install:
+  # Get Clang
+  export COMPILER_NAME=""
+  export COMPILER_URL="
+  
+  # Get compiler
+  - wget https://github.com/Viq111/travis-container-packets/releases/download/clang-3.4.2/clang.tar.bz2
+  - tar -xjf clang.tar.bz2
+  - rm clang.tar.bz2
+  - export PATH=$(pwd)/clang/bin:$PATH
+  - export LIBRARY_PATH=$(pwd)/clang/lib:$LIBRARY_PATH
+  - export LD_LIBRARY_PATH=$(pwd)/clang/lib:$LD_LIBRARY_PATH
+  - export CPLUS_INCLUDE_PATH=$(pwd)/clang/include/c++/v1:$CPLUS_INCLUDE_PATH
   - echo 'Compiling with:'
   - $CXX --version
   - echo 'CMake version:'
   - cmake --version
 script: 
-  - sh build_base.sh
+  - sh build_libcxx.sh
 os:
   - linux
