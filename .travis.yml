@@ -4,14 +4,36 @@ notifications:
   email: false
 compiler:
   - gcc
+  - clang
 addons:
   apt_packages: "curl"
 before_install:
+  # Get CMake 3.1
+  - wget https://github.com/Viq111/travis-container-packets/releases/download/cmake-3.1.2/cmake.tar.bz2
+  - tar -xjf cmake.tar.bz2
+  - rm cmake.tar.bz2
+  - export PATH=$(pwd)/cmake/bin:$PATH
+  # Get GCC 4.8
+  - if [ "$CXX" == "g++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/gcc-4.8.2/gcc.tar.bz2; fi
+  - if [ "$CXX" == "g++" ]; then tar -xjf gcc.tar.bz2; fi
+  - if [ "$CXX" == "g++" ]; then rm gcc.tar.bz2; fi
+  - if [ "$CXX" == "g++" ]; then export PATH=$(pwd)/gcc/bin:$PATH; fi
+  - if [ "$CXX" == "g++" ]; then export LIBRARY_PATH=$(pwd)/gcc/lib64:$LIBRARY_PATH; fi
+  - if [ "$CXX" == "g++" ]; then export LD_LIBRARY_PATH=$(pwd)/gcc/lib64:$LD_LIBRARY_PATH; fi
+  - if [ "$CXX" == "g++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.8.2:$CPLUS_INCLUDE_PATH; fi
+  # Get Clang 3.4
+  - if [ "$CXX" == "clang++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/clang%2Blibcxx-3.4.2/clang_libcxx.tar.bz2; fi
+  - if [ "$CXX" == "clang++" ]; then tar -xjf clang_libcxx.tar.bz2; fi
+  - if [ "$CXX" == "clang++" ]; then rm clang_libcxx.tar.bz2 && mv clang_libcxx clang; fi
+  - if [ "$CXX" == "clang++" ]; then export PATH=$(pwd)/clang/bin:$PATH; fi
+  - if [ "$CXX" == "clang++" ]; then export LIBRARY_PATH=$(pwd)/clang/lib:$LIBRARY_PATH; fi
+  - if [ "$CXX" == "clang++" ]; then export LD_LIBRARY_PATH=$(pwd)/clang/lib:$LD_LIBRARY_PATH; fi
+  - if [ "$CXX" == "clang++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/clang/include/c++/v1:$CPLUS_INCLUDE_PATH; fi
   - echo 'Compiling with:'
-  - $CXX --version
-  - echo 'CMake version:'
-  - cmake --version
+  - which cmake && cmake --version
+  - which $CC && $CC --version
+  - which $CXX && $CXX --version
 script: 
-  - sh build_base.sh
+  - sh build_boost.sh
 os:
   - linux
