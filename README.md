@@ -19,7 +19,7 @@ In your travis file, you can add the following commands to download, install and
 
 ### Boost
 
-```
+```yml
 ToDo
 ```
 
@@ -27,7 +27,7 @@ ToDo
 
 Contains: `chrono`, `date_time`, `iostreams`, `thread`
 
-```
+```yml
 install:
   # Get boost
   - wget https://github.com/Viq111/travis-container-packets/releases/download/boost-min-1.57.0/boost.tar.bz2
@@ -43,7 +43,7 @@ See `Clang+libc++` to use Clang on travis-ci.
 
 ### Clang+libc++
 
-```
+```yml
 compiler:
   - clang
 before_install:
@@ -60,7 +60,7 @@ before_install:
 
 ### CMake
 
-```
+```yml
 before_install:
   # Get CMake 3.1
   - wget https://github.com/Viq111/travis-container-packets/releases/download/cmake-3.1.2/cmake.tar.bz2
@@ -73,7 +73,7 @@ If you prefer CMake 2.8, you can use it with the same code but the url: `https:/
 
 ### GCC
 
-```
+```yml
 before_install:
   # Get GCC 4.8
   - if [ "$CXX" == "g++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/gcc-4.8.2/gcc.tar.bz2; fi
