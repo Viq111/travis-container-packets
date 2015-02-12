@@ -17,17 +17,17 @@ wget https://github.com/Viq111/travis-container-packets/releases/download/clang-
 echo "Untarring..."
 tar -xjf clang.tar.bz2
 rm clang.tar.bz2
-mv clang clang+libcxx
+mv clang clang_libcxx
 # Copy libcxx to clang
-cp lib/libc++.so.1.0 clang+libcxx/lib/
-cp -r include/* clang+libcxx/include/c++/v1/
-cp clang+libcxx/lib/libc++.so.1.0 clang+libcxx/lib/libc++.so
-cp clang+libcxx/lib/libc++.so.1.0 clang+libcxx/lib/libc++.so.1
+cp lib/libc++.so.1.0 clang_libcxx/lib/
+cp -r include/* clang_libcxx/include/c++/v1/
+cp clang_libcxx/lib/libc++.so.1.0 clang_libcxx/lib/libc++.so
+cp clang_libcxx/lib/libc++.so.1.0 clang_libcxx/lib/libc++.so.1
 # Tar library
 echo "Build done, tarring..."
-tar -jc --file=clang+libcxx.tar.bz2 clang+libcxx/
+tar -jc --file=clang_libcxx.tar.bz2 clang_libcxx/
 echo "Uploading..."
 echo "########################################################################"
 echo "Build URL:"
-curl --upload-file ./clang+libcxx.tar.bz2 https://transfer.sh/clang+libcxx.tar.bz2
+curl --upload-file ./clang_libcxx.tar.bz2 https://transfer.sh/clang_libcxx.tar.bz2
 echo "########################################################################"
