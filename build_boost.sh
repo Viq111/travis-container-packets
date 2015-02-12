@@ -4,8 +4,8 @@ set -e
 echo "Getting sources..."
 wget http://downloads.sourceforge.net/project/boost/boost/1.57.0/boost_1_57_0.tar.bz2
 echo "Untarring..."
-tar -xjf boost_*.tar.gz
-rm boost_*.tar.gz
+tar -xjf boost_*.tar.bz2
+rm boost_*.tar.bz2
 cd boost_*
 # Build library
 echo "Building..."
