@@ -50,6 +50,7 @@ before_install:
   - if [ "$CXX" == "clang++" ]; then export LIBRARY_PATH=$(pwd)/clang/lib:$LIBRARY_PATH; fi
   - if [ "$CXX" == "clang++" ]; then export LD_LIBRARY_PATH=$(pwd)/clang/lib:$LD_LIBRARY_PATH; fi
   - if [ "$CXX" == "clang++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/clang/include/c++/v1:$CPLUS_INCLUDE_PATH; fi
+  - if [ "$CXX" == "clang++" ]; then export CXXFLAGS="-stdlib=libc++"; fi
 ```
 
 ### CMake
