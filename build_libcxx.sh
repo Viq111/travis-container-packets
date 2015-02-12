@@ -11,18 +11,23 @@ cd libcxx-3.4.2.src/lib
 echo "Building..."
 bash buildit
 cd ..
-mkdir libcxx
-mkdir libcxx/lib
-mkdir libcxx/include/
-cp lib/libc++.so.1.0 libcxx/lib/
-cp -r include/* libcxx/include/
-cp libcxx/lib/libc++.so.1.0 libcxx/lib/libc++.so
-cp libcxx/lib/libc++.so.1.0 libcxx/lib/libc++.so.1
+# Get Clang
+echo "Getting Clang..."
+wget https://github.com/Viq111/travis-container-packets/releases/download/clang-3.4.2/clang.tar.bz2
+echo "Untarring..."
+tar -xjf clang.tar.bz2
+rm clang.tar.bz2
+mv clang clang+libcxx
+# Copy libcxx to clang
+cp lib/libc++.so.1.0 clang+libcxx/lib/
+cp -r include/* clang+libcxx/include/c++/v1/
+cp clang+libcxx/lib/libc++.so.1.0 clang+libcxx/lib/libc++.so
+cp clang+libcxx/lib/libc++.so.1.0 clang+libcxx/lib/libc++.so.1
 # Tar library
 echo "Build done, tarring..."
-tar -jc --file=libcxx.tar.bz2 libcxx/
+tar -jc --file=clang+libcxx.tar.bz2 clang+libcxx/
 echo "Uploading..."
 echo "########################################################################"
 echo "Build URL:"
-curl --upload-file ./libcxx.tar.bz2 https://transfer.sh/libcxx.tar.bz2
+curl --upload-file ./clang+libcxx.tar.bz2 https://transfer.sh/clang+libcxx.tar.bz2
 echo "########################################################################"
