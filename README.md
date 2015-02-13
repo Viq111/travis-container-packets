@@ -10,7 +10,7 @@ A repository to compile and store packets for Travis container-based architectur
 | Clang | 3.4.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=clang)](https://travis-ci.org/Viq111/travis-container-packets) |
 | Clang+libc++ | 3.4.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=libcxx)](https://travis-ci.org/Viq111/travis-container-packets) |
 | CMake | 3.1.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=cmake-3)](https://travis-ci.org/Viq111/travis-container-packets) |
-| GCC | 4.8.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=gcc-4.8)](https://travis-ci.org/Viq111/travis-container-packets) |
+| GCC | 4.8.2 | [![Build Status](https://travis-ci.org/Viq111/travis-container-packets.svg?branch=gcc)](https://travis-ci.org/Viq111/travis-container-packets) |
 
 
 ## How to use
