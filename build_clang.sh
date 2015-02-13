@@ -26,12 +26,14 @@ make -j4
 make install
 # Tar library
 echo "Build done, tarring..."
-cd build
-tar -jc --file=clang.tar.bz2 binaries
+mkdir tmp
+mv binaries tmp/clang
+cd tmp
+tar -jc --file=clang.tar.bz2 clang
 echo "Uploading..."
 echo "########################################################################"
 echo "Build URL:"
 curl --upload-file ./clang.tar.bz2 https://transfer.sh/clang.tar.bz2
 echo "########################################################################"
-cd ..
+cd ../..
 rm -rf build
