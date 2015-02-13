@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 export LLVM_VERSION=RELEASE_351
-mkdir clang
-cd clang
+mkdir clang_build/
+cd clang_build/
 echo "> Compiling Clang $LLVM_VERSION ..."
 echo "Getting LLVM..."
 svn co http://llvm.org/svn/llvm-project/llvm/tags/$LLVM_VERSION/final llvm -q
@@ -35,4 +35,4 @@ echo "Build URL:"
 curl --upload-file ./clang.tar.bz2 https://transfer.sh/clang.tar.bz2
 echo "########################################################################"
 cd ..
-rm -rf clang/
+rm -rf clang_build/
