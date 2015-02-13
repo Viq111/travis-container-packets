@@ -22,7 +22,7 @@ echo "Configuring..."
 mkdir clang
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=$(readlink -f $(pwd)/../clang) -DCMAKE_BUILD_TYPE="RelWithDebInfo" -DLLVM_TARGETS_TO_BUILD="X86;X86_64" ../llvm
+cmake -DCMAKE_INSTALL_PREFIX=$(readlink -f $(pwd)/../clang) -DCMAKE_BUILD_TYPE="RelWithDebInfo" -DLLVM_TARGETS_TO_BUILD="CppBackend;X86" ../llvm
 make -j4
 make install
 # Tar library
