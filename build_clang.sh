@@ -10,10 +10,10 @@ echo "Getting Clang..."
 cd llvm/tools
 svn co http://llvm.org/svn/llvm-project/cfe/tags/$LLVM_VERSION/final clang -q
 cd ../..
-echo "Getting extras..."
-cd llvm/tools/clang/tools
-svn co http://llvm.org/svn/llvm-project/clang-tools-extra/tags/$LLVM_VERSION/final extra -q
-cd ../../../..
+#echo "Getting extras..."
+#cd llvm/tools/clang/tools
+#svn co http://llvm.org/svn/llvm-project/clang-tools-extra/tags/$LLVM_VERSION/final extra -q
+#cd ../../../..
 echo "Getting RT..."
 cd llvm/projects
 svn co http://llvm.org/svn/llvm-project/compiler-rt/tags/$LLVM_VERSION/final compiler-rt -q
@@ -22,8 +22,7 @@ echo "Configuring..."
 mkdir clang
 mkdir build
 cd build
-#../llvm/configure --prefix=$(pwd)/binaries
-cmake -DCMAKE_INSTALL_PREFIX=$(readlink -f $(pwd)/../clang)  ../llvm
+cmake -DCMAKE_INSTALL_PREFIX=$(readlink -f $(pwd)/../clang) -DCMAKE_BUILD_TYPE="RelWithDebInfo" -DLLVM_TARGETS_TO_BUILD="cpp;X86;X86_64" ../llvm
 make -j4
 make install
 # Tar library
