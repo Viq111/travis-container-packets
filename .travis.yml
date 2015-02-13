@@ -4,7 +4,6 @@ notifications:
   email: false
 compiler:
   - gcc
-  - clang
 addons:
   apt_packages: "curl"
 before_install:
@@ -29,11 +28,20 @@ before_install:
   - if [ "$CXX" == "clang++" ]; then export LIBRARY_PATH=$(pwd)/clang/lib:$LIBRARY_PATH; fi
   - if [ "$CXX" == "clang++" ]; then export LD_LIBRARY_PATH=$(pwd)/clang/lib:$LD_LIBRARY_PATH; fi
   - if [ "$CXX" == "clang++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/clang/include/c++/v1:$CPLUS_INCLUDE_PATH; fi
+  - if [ "$CXX" == "clang++" ]; then export CXXFLAGS="-stdlib=libc++"; fi
+  # Get SVN
+  # - sh build_svn.sh
+  # - export PATH=$(pwd)/svn/bin:$PATH
+  # - export C_INCLUDE_PATH=$(pwd)/svn/include:$C_INCLUDE_PATH
+  # - export CPLUS_INCLUDE_PATH=$(pwd)/svn/include:$CPLUS_INCLUDE_PATH
+  # - export LD_LIBRARY_PATH=$(pwd)/svn/lib:$LD_LIBRARY_PATH
+  # - export LIBRARY_PATH=$(pwd)/svn/lib:$LIBRARY_PATH 
   - echo 'Compiling with:'
   - which cmake && cmake --version
   - which $CC && $CC --version
   - which $CXX && $CXX --version
+  - which svn && svn --version
 script: 
-  - sh build_boost.sh
+  - sh build_clang.sh
 os:
   - linux
