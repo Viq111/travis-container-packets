@@ -7,10 +7,17 @@ compiler:
 addons:
   apt_packages: "curl"
 before_install:
+  # Get GCC 4.8
+  - if [ "$CXX" == "g++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/gcc-4.8.2/gcc.tar.bz2; fi
+  - if [ "$CXX" == "g++" ]; then tar -xjf gcc.tar.bz2; fi
+  - if [ "$CXX" == "g++" ]; then rm gcc.tar.bz2; fi
+  - if [ "$CXX" == "g++" ]; then export PATH=$(pwd)/gcc/bin:$PATH; fi
+  - if [ "$CXX" == "g++" ]; then export LIBRARY_PATH=$(pwd)/gcc/lib64:$LIBRARY_PATH; fi
+  - if [ "$CXX" == "g++" ]; then export LD_LIBRARY_PATH=$(pwd)/gcc/lib64:$LD_LIBRARY_PATH; fi
+  - if [ "$CXX" == "g++" ]; then export CPLUS_INCLUDE_PATH=$(pwd)/gcc/include/c++/4.8.2:$CPLUS_INCLUDE_PATH; fi
   - echo 'Compiling with:'
-  - $CXX --version
-  - echo 'CMake version:'
-  - cmake --version
+  - which $CC && $CC --version
+  - which $CXX && $CXX --version
 script: 
   - sh build_gcc.sh
 os:
