@@ -2,18 +2,19 @@
 set -e
 export CXXFLAGS="-std=c++0x -stdlib=libc++"
 echo "Getting sources..."
-wget http://llvm.org/releases/3.4.2/libcxx-3.4.2.src.tar.gz
+export LLVM_VERSION=3.5.1
+wget http://llvm.org/releases/$LLVM_VERSION/libcxx-$LLVM_VERSION.src.tar.xz
 echo "Untarring..."
-tar -xzf libcxx-3.4.2.src.tar.gz
-rm libcxx-3.4.2.src.tar.gz
-cd libcxx-3.4.2.src/lib
+tar -xf libcxx-$LLVM_VERSION.src.tar.xz
+rm libcxx-$LLVM_VERSION.src.tar.xz
+cd libcxx-$LLVM_VERSION.src/lib
 # Build library
 echo "Building..."
 bash buildit
 cd ..
 # Get Clang
 echo "Getting Clang..."
-wget https://github.com/Viq111/travis-container-packets/releases/download/clang-3.4.2/clang.tar.bz2
+wget https://github.com/Viq111/travis-container-packets/releases/download/clang-$LLVM_VERSION/clang.tar.bz2
 echo "Untarring..."
 tar -xjf clang.tar.bz2
 rm clang.tar.bz2
