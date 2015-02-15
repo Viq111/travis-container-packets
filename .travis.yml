@@ -8,7 +8,7 @@ addons:
   apt_packages: "curl"
 before_install:
   # Get Clang 3.5
-  - if [ "$CXX" == "clang++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/clang-3.5.1/clang.tar.bz2; fi
+  - if [ "$CXX" == "clang++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/clang-3.4.2/clang.tar.bz2; fi
   - if [ "$CXX" == "clang++" ]; then tar -xjf clang.tar.bz2; fi
   - if [ "$CXX" == "clang++" ]; then rm clang.tar.bz2; fi
   - if [ "$CXX" == "clang++" ]; then export PATH=$(pwd)/clang/bin:$PATH; fi
