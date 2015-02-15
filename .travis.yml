@@ -8,7 +8,7 @@ addons:
   apt_packages: "curl"
 before_install:
   # Get GCC 4.8
-  - if [ "$CXX" == "g++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/gcc-4.8.2/gcc.tar.bz2; fi
+  - if [ "$CXX" == "g++" ]; then wget https://github.com/Viq111/travis-container-packets/releases/download/gcc-4.9.2/gcc.tar.bz2; fi
   - if [ "$CXX" == "g++" ]; then tar -xjf gcc.tar.bz2; fi
   - if [ "$CXX" == "g++" ]; then rm gcc.tar.bz2; fi
   - if [ "$CXX" == "g++" ]; then export PATH=$(pwd)/gcc/bin:$PATH; fi
