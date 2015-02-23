@@ -33,7 +33,7 @@ before_install:
   - export CXXFLAGS="$CXXFLAGS -Os"
   - echo 'Compiling with:'
   - which cmake && cmake --version
-  - which $CC && $CC --version
+  #- which $CC && $CC --version
   - which $CXX && $CXX --version
   - which svn && svn --version
 script: 
